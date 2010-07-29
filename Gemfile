@@ -9,7 +9,10 @@ group :development do
   gem 'unicorn'
   gem 'ruby-debug'
 end
- 
+
 group :test do
   gem "rspec-rails", ">= 2.0.0.beta.17"
+  gem "autotest-rails"
+  gem "autotest"
 end
+
