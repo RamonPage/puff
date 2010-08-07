@@ -1,23 +1,34 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Page do
-  before :each do
-    @page = Page.new(:title => "title", :body => "body body body")
-  end
+
   context "with invalid attribute" do
-
-    it "#title should have an error" do
-      @page.title = nil
-      @page.save
-      @page.should have(1).error
+    before :each do
+      @page = Page.new(:title => '', :slug => '', :body => '')
     end
 
-    it "#body should have an error" do
-      @page.body = nil
+    it "should have errors" do
       @page.save
-      @page.should have(1).error
+      @page.should have(3).error
     end
-
   end
+
+  context "with valid attribute" do
+    before :each do
+      @page = Page.new(:title => "título da página", :slug => "meu-slug", :body => "body body body")
+    end
+    it "without slug should slugfy title" do
+      @page.slug = ''
+      @page.save
+      @page.slug.should == "t-tulo-da-p-gina"
+    end
+
+    it "with slug should slugfy himself" do
+      @page.slug = "título da página com ão"
+      @page.save
+      @page.slug.should == "t-tulo-da-p-gina-com-o"
+    end
+  end
+
 end
 
