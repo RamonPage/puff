@@ -4,6 +4,7 @@ development:
 test:
   host: http://127.0.0.1:5984
   db: puff-test
-test:
+production:
   host: http://127.0.0.1:5984
   db: puff
+

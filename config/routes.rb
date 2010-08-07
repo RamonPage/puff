@@ -14,6 +14,10 @@ Puff::Application.routes.draw do |map|
   #   resources :products
   match '/:slug', :to => 'pages#show'
 
+  namespace :admin do
+    resources :pages
+  end
+
   # Sample resource route with options:
   #   resources :products do
   #     member do

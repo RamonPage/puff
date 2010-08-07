@@ -3,6 +3,8 @@ class Page < CouchRest::Model::Base
   property :body,      String
   property :slug,      String
 
+  validates_presence_of :title, :body
+
   timestamps!
 
   view_by :slug
