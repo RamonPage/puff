@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../../spec_helper'
 describe Admin::PagesController do
 
   describe "route" do
-    it "should recognise /new to #new" do
+    it "should recognise admin/pages/new to admin:pages#new" do
       { :get => "/admin/pages/new"}.should route_to(  :controller => 'admin/pages',
                                                 :action => 'new')
     end
@@ -25,9 +25,10 @@ describe Admin::PagesController do
 
     context "with valid attributes" do
 
-      pending
+
       it 'it redirects to show' do
         post :create, :page => { :title => "Título", :slug => "", :body  => "Corpo da Página" }
+        response.should be_redirect
       end
 
     end

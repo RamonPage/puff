@@ -11,6 +11,12 @@ describe Page do
       @page.save
       @page.should have(3).error
     end
+
+    it "#slug with invalid characters like '!@%*&%¨' clean it" do
+      @page.slug = '!@%*&%¨'
+      @page.save
+      @page.slug.should == ""
+    end
   end
 
   context "with valid attribute" do
@@ -22,6 +28,7 @@ describe Page do
       @page.save
       @page.slug.should == "t-tulo-da-p-gina"
     end
+
 
     it "with slug should slugfy himself" do
       @page.slug = "título da página com ão"

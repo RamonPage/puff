@@ -1,0 +1,12 @@
+<%= semantic_form_for [:admin, @page] do |form| %>
+  <%= form.inputs do %>
+    <%= form.input :title %>
+    <%= form.input :slug , :hint => "leave empty to generate the slug based on title"%>
+    <%= form.input :body, :as => :text %>
+  <% end %>
+  <%= form.buttons do %>
+    <%= form.commit_button %>
+  <% end %>
+
+<% end %>
+
