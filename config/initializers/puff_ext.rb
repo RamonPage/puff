@@ -1,2 +1,2 @@
-require 'core_extensions/string'
+require 'core_ext/string'
 
