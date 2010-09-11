@@ -12,11 +12,16 @@ Puff::Application.routes.draw do |map|
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  match '/:slug', :to => 'pages#show'
+  resources :posts
 
   namespace :admin do
-    resources :pages
+    resources :pages, :posts
   end
+
+  match '/:slug', :to => 'pages#show'
+
+
+
 
   # Sample resource route with options:
   #   resources :products do
