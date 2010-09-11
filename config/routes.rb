@@ -1,4 +1,16 @@
 Puff::Application.routes.draw do |map|
+
+  resources :posts
+
+  namespace :admin do
+    resources :pages, :posts
+  end
+
+  match '/:slug', :to => 'pages#show'
+
+  root :to => 'posts#index'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -12,16 +24,6 @@ Puff::Application.routes.draw do |map|
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :posts
-
-  namespace :admin do
-    resources :pages, :posts
-  end
-
-  match '/:slug', :to => 'pages#show'
-
-
-
 
   # Sample resource route with options:
   #   resources :products do

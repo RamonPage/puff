@@ -5,8 +5,7 @@ describe PostsController do
   describe "route" do
 
     it "should recognise /posts to #index" do
-      { :get => "/posts"}.should route_to(  :controller => 'posts',
-                                              :action => 'index')
+      { :get => "/posts"}.should route_to(  :controller => 'posts', :action => 'index')
     end
 
   end

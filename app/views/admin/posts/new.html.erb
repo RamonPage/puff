@@ -1,0 +1,8 @@
+<%= simple_form_for [:admin, @post] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :body, :as => :text %>
+  <%= f.input :tags %>
+
+  <%= f.button :submit %>
+<% end %>
+
